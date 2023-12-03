@@ -41,6 +41,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "rspec-rails"
   gem "rubocop", require: false
+  gem "ransack"
 end
 
 group :development do
