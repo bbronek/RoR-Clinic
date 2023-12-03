@@ -1,0 +1,31 @@
+inherit_from: .rubocop_todo.yml
+
+# Enabled cops
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'bin/*'
+
+# Layout/Indentation
+Layout/IndentationWidth:
+  IndentationWidth: 2
+
+# Naming conventions
+Naming/FileName:
+  Enabled: true
+  Ignore:
+    - 'db/schema.rb'
+    - 'Rakefile'
+    - 'Guardfile'
+
+# Style
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Documentation-related cops
+Metrics/LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
