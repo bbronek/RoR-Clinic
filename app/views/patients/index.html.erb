@@ -1,2 +1,58 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<%= search_form_for @q do |f| %>
+  <div class="field">
+    <%= f.label :gender_eq, 'Gender' %>
+    <div class="form-check">
+      <%= f.radio_button :gender_eq, 'Male', class: 'form-check-input' %>
+      <%= f.label :gender_male, class: 'form-check-label' do %>
+        Male
+      <% end %>
+    </div>
+    <div class="form-check">
+      <%= f.radio_button :gender_eq, 'Female', class: 'form-check-input' %>
+      <%= f.label :gender_female, class: 'form-check-label' do %>
+        Female
+      <% end %>
+    </div>
+    <div class="form-check">
+      <%= f.radio_button :gender_eq, '', class: 'form-check-input', checked: @q.gender_eq.blank? %>
+      <%= f.label :gender_none, class: 'form-check-label' do %>
+        Both
+      <% end %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_cont, 'Last Name' %>
+    <%= f.text_field :last_name_cont %>
+  </div>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Gender</th>
+    <th>Date of Birth</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @patients.each do |patient| %>
+    <tr>
+      <td><%= patient.last_name %></td>
+      <td><%= patient.first_name %></td>
+      <td><%= patient.gender %></td>
+      <td><%= patient.date_of_birth %></td>
+      <td>
+        <%= link_to 'Make an appointment', new_appointment_path(patient_id: patient.id) %>
+        <%= link_to 'Show', patient %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @patients %>
