@@ -36,6 +36,7 @@
     <th>First Name</th>
     <th>Gender</th>
     <th>Date of Birth</th>
+    <th>Number of Appointments</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -46,6 +47,9 @@
       <td><%= patient.first_name %></td>
       <td><%= patient.gender %></td>
       <td><%= patient.date_of_birth %></td>
+      <td>
+        <%= link_to patient.appointments.count, patient_appointments_path(patient) %>
+      </td>
       <td>
         <%= link_to 'Make an appointment', new_appointment_path(patient_id: patient.id) %>
         <%= link_to 'Show', patient %>
