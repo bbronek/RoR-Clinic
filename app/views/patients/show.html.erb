@@ -1,2 +1,45 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h1><%= @patient.full_name %></h1>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <td><%= @patient.first_name %></td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td><%= @patient.last_name %></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td><%= @patient.gender %></td>
+  </tr>
+  <tr>
+    <th>Date of Birth</th>
+    <td><%= @patient.date_of_birth %></td>
+  </tr>
+</table>
+
+<h2>Appointments</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Appointment Date</th>
+    <th>Price</th>
+    <th>Doctor</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @patient.appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.appointment_date %></td>
+      <td><%= appointment.price %></td>
+      <td><%= appointment.doctor.full_name %></td>
+      <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Patients', patients_path %>
