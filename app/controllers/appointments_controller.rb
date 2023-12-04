@@ -32,10 +32,15 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to appointment_path, notice: "Appointment was successfully updated"
+      redirect_to appointments_path, notice: "Appointment was successfully updated"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @appointment.destroy
+    redirect_to appointment_path, notice: "Appointment was successfully destroyed"
   end
 
   private
