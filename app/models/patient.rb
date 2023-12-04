@@ -9,4 +9,8 @@ class Patient < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     %w[appointments]
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
