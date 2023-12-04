@@ -1,0 +1,10 @@
+{
+  "name": "clinic",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "chart.js": "^4.4.0",
+    "stimulus": "^3.2.2"
+  }
+}
