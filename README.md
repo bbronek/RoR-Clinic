@@ -23,7 +23,12 @@ bundle install
 rails db:create db:migrate
 ```
 
-4. Start the server
+4. Import patients form csv file
+```bash
+rake import:patients
+```
+
+5. Start the server
 ```bash
 rails s
 ```
