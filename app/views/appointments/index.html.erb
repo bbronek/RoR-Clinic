@@ -16,8 +16,8 @@
     <tr>
       <td><%= appointment.appointment_date %></td>
       <td><%= appointment.price %></td>
-      <td><%= appointment.doctor.first_name %></td>
-      <td><%= appointment.patient.first_name %></td>
+      <td><%= appointment.doctor.full_name %></td>
+      <td><%= appointment.patient.full_name %></td>
       <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
     </tr>
   <% end %>
