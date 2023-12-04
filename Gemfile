@@ -43,6 +43,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "ransack"
   gem "will_paginate"
+  gem "chartkick"
 end
 
 group :development do
