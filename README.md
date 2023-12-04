@@ -18,22 +18,27 @@ git clone https://github.com/bbronek/RoR-Clinic.git
 bundle install
 ```
 
-3. Set up the database
+3. Fill envs according to `.env.example`
+```bash
+DB_USERNMAME=
+DB_PASSWORD=
+```
+4. Set up the database
 ```bash
 rails db:create db:migrate
 ```
 
-4. Seed database with doctors
+5. Seed database with doctors
 ```bash
 rails db:seed
 ```
 
-5. Import patients form csv file
+6. Import patients form csv file
 ```bash
 rake import:patients
 ```
 
-6. Start the server
+7. Start the server
 ```bash
 rails s
 ```
