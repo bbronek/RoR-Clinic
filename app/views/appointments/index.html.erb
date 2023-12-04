@@ -1,2 +1,27 @@
-<h1>Appointments#index</h1>
-<p>Find me in app/views/appointments/index.html.erb</p>
+<h1>Appointments</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Appointment Date</th>
+    <th>Price</th>
+    <th>Doctor</th>
+    <th>Patient</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.appointment_date %></td>
+      <td><%= appointment.price %></td>
+      <td><%= appointment.doctor.first_name %></td>
+      <td><%= appointment.patient.first_name %></td>
+      <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
